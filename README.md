@@ -2,7 +2,7 @@
 
 ## Introduction
 
-Trying to collaboratively encode texts in TEI XML on Google Docs, but frustrated by the sheer number of keystrokes it takes? EasyTEI is a Google Apps Script that allows an easier markup scheme which it then transforms into TEI (Text Encoding Initiative) XML format. You may have to adapt the script for the text you're trying to encode.
+Trying to collaboratively encode texts in TEI XML on Google Docs, but frustrated by the sheer number of keystrokes it takes? EasyTEI is a Google Apps Script that transforms a simpler markup into TEI (Text Encoding Initiative) XML format. You may have to adapt the script for the text you're trying to encode.
 
 ![ezgif-5-37d002df9e](https://github.com/suhasm/easytei/assets/3070998/15c0f4d5-c52c-496f-b3a3-36ff47e00377)
 
@@ -12,7 +12,7 @@ tāva{nB5}cciya gaṇaï phuḍaṁ | kulavavaēsaṁ [B=narō, A=tarō] [A #B=v
 jāva ṇa [AO=ṇivaḍaï, B=ṇavaḍaï,A=ṇi{nA5}ṇivaḍaï] hiyaē | mayara-ddhaya-mukka-sara-ṇivahō ||6
 parallel=Jinadatta, p.76
 ```
-EasyTEI can then transform it into TEI XML:
+EasyTEI then transformd it into TEI XML:
 ```
 <lg n="x" xml:id="RaGāKō.xx">
 
@@ -42,7 +42,7 @@ parallel=Jinadatta, p.76
 2. ```{oAn}``` represents binding holes. ```{oA6}``` represents a binding hole in Ms A of size 6.
 3. ```{nAx}``` represents a line number. ```{nB9}``` represents that line 9 has just begun in Ms. B.
 4. ```parallel=TextName, Reference``` represents a parallel. For example ```parallel=Jinadatta, p.76```
-5. ```<pb n="1r" img="2" ed="#A"/>```
+5. ```{pA-5r-2}``` represents the start of folio 5r, corresponding to image 2, in Ms A.
 6. ```[A=reading1, B=reading2, C= reading3]```represents variants in manuscripts A,B and C. Lemma goes first.
     * Use single letters (such ```A```) to represent manuscripts. Represent editors by two letters (such as ```SM```): ```[SM=reading1, A=reading2, B=reading3]```
     * While using a reading from a different text, put a tilde before the textname: ```[A=reading1, ~meghadūta=reading2, B=reading3]```
