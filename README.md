@@ -25,7 +25,7 @@ EasyTEI then transformd it into TEI XML:
 ```
 
 ## Syntax
-1. The syntax is two lines of verse followed by one or more optional lines for parallels:
+1. **The syntax** is two lines of verse followed by one or more optional lines for parallels:
 ````
 verse line 1
 verse line 2
@@ -39,11 +39,11 @@ jāva ṇa [AO=ṇivaḍaï, B=ṇavaḍaï,A=ṇi{nA5}ṇivaḍaï] hiyaē | ma
 parallel=Jinadatta, p.76
 ````
 
-2. ```{oAn}``` represents binding holes. ```{oA6}``` represents a binding hole in Ms A of size 6.
-3. ```{nAx}``` represents a line number. ```{nB9}``` represents that line 9 has just begun in Ms. B.
-4. ```parallel=TextName, Reference``` represents a parallel. For example ```parallel=Jinadatta, p.76```
-5. ```{pA-5r-2}``` represents the start of folio 5r, corresponding to image 2, in Ms A.
-6. ```[A=reading1, B=reading2, C= reading3]```represents variants in manuscripts A,B and C. Lemma goes first.
+2. **Binding Holes**: ```{oAn}``` represents binding holes. ```{oA6}``` represents a binding hole in Ms A of size 6.
+3. **Line Number**: ```{nAx}``` represents a line number. ```{nB9}``` represents that line 9 has just begun in Ms. B.
+4. **Parallels**: ```parallel=TextName, Reference``` represents a parallel. For example ```parallel=Jinadatta, p.76```
+5. **Page Break**: ```{pA-5r-2}``` represents the start of folio 5r, corresponding to image 2, in Ms A.
+6. **Variant Readings**: ```[A=reading1, B=reading2, C= reading3]```represents variants in manuscripts A,B and C. Lemma goes first.
     * Use single letters (such ```A```) to represent manuscripts. Represent editors by two letters (such as ```SM```): ```[SM=reading1, A=reading2, B=reading3]```
     * While using a reading from a different text, put a tilde before the textname: ```[A=reading1, ~meghadūta=reading2, B=reading3]```
     * If you want to specify orthographic or punctuation variants: ```[punct, A=reading1, SM=reading2]```, ```[orthographic, A=reading1, SM=reading2]```
@@ -68,6 +68,9 @@ The script contains the following functions:
 
 ### `wrapLines(text)`
 This function wraps every line of the input text with `<l></l>` tags.
+
+### `replacePageBreak(text)`
+This function identifies page break commmands (say ```{pA-5r-8}```), and replaces them with ```<pb n="5r" img="8" ed="#A"/>```.
 
 ### `replaceParallel(text)`
 This function identifies instances of the format "parallel=X, Y" and replaces them with `<note type="parallel"><ptr target="#X"/>Y</note>`.
