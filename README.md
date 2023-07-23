@@ -2,7 +2,7 @@
 
 ## Introduction
 
-Trying to encode your texts in TEI xml, but frustrated by the sheer number of characters it takes? EasyTEI is a Google Apps Script that allows an easier markup scheme which it then transforms into TEI (Text Encoding Initiative) XML format.
+Trying to collaboratively encode texts in TEI XML on Google Docs, but frustrated by the sheer number of keystrokes it takes? EasyTEI is a Google Apps Script that allows an easier markup scheme which it then transforms into TEI (Text Encoding Initiative) XML format.
 
 ![ezgif-5-37d002df9e](https://github.com/suhasm/easytei/assets/3070998/15c0f4d5-c52c-496f-b3a3-36ff47e00377)
 
