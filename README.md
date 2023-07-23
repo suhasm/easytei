@@ -2,9 +2,11 @@
 
 ## Introduction
 
-Trying to encode your texts in TEI xml, but frustrated by the effort it takes? EasyTEI is a Google Apps Script that allows you to use an easier markup scheme which it then transforms into TEI (Text Encoding Initiative) XML format.
+Trying to encode your texts in TEI xml, but frustrated by the sheer number of characters it takes? EasyTEI is a Google Apps Script that allows an easier markup scheme which it then transforms into TEI (Text Encoding Initiative) XML format.
 
-For instance, you can quickly jot the following while transcribing from two manuscripts:
+![ezgif-5-37d002df9e](https://github.com/suhasm/easytei/assets/3070998/15c0f4d5-c52c-496f-b3a3-36ff47e00377)
+
+For instance, you can quickly jot down the following while transcribing from two manuscripts:
 ```
 tāva{nB5}cciya gaṇaï phuḍaṁ | kulavavaēsaṁ [B=narō, A=tarō] [A #B=vi dhīro, ~Jinadatta=samatthō] vi{oA6}
 jāva ṇa [AO=ṇivaḍaï, B=ṇavaḍaï,A=ṇi{nA5}ṇivaḍaï] hiyaē | mayara-ddhaya-mukka-sara-ṇivahō ||6
@@ -27,7 +29,7 @@ There are only a couple of things to remember:
 2. {nAx} represents a line number. {nB9} represents that line 9 has just begun in Ms. B.
 3. [A=taru, B=tarūṇ, C= taravaḥ] represents variants in manuscripts A,B and C. Use single letters for manuscripts. For emendations by people, use two letters: [SM=tīra, A=taru, B=tarūn]. If you want to quote a reading from a different text, use the tilde: [A=taru, ~meghadūta=tarūn, B=tarīn]. If you want to specify orthographic or punctuation variants: [punct, A=taru, SM=tarūn]
 
-![ezgif-5-37d002df9e](https://github.com/suhasm/easytei/assets/3070998/15c0f4d5-c52c-496f-b3a3-36ff47e00377)
+
 
 
 ## Features
