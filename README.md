@@ -25,13 +25,18 @@ EasyTEI can then transform it into TEI XML:
 ```
 
 ## Syntax
-1. The syntax is two lines of verse followed by optional lines for parallels:
+1. The syntax is two lines of verse followed by one or more optional lines for parallels:
 ````
 verse line 1
 verse line 2
 parallel=TextName1, Reference1
 parallel=TextName2, Reference2
 parallel=TextName3, Reference3
+````
+````
+tāva{nB5}cciya gaṇaï phuḍaṁ | kulavavaēsaṁ [B=narō, A=tarō] [A #B=vi dhīro, ~Jinadatta=samatthō] vi{oA6}
+jāva ṇa [AO=ṇivaḍaï, B=ṇavaḍaï,A=ṇi{nA5}ṇivaḍaï] hiyaē | mayara-ddhaya-mukka-sara-ṇivahō ||6
+parallel=Jinadatta, p.76
 ````
 
 2. ```{oAn}``` represents binding holes. ```{oA6}``` represents a binding hole in Ms A of size 6.
