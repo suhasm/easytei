@@ -2,7 +2,7 @@
 
 ## Introduction
 
-Trying to collaboratively encode texts in TEI XML on Google Docs, but frustrated by the sheer number of keystrokes it takes? EasyTEI is a Google Apps Script that allows an easier markup scheme which it then transforms into TEI (Text Encoding Initiative) XML format.
+Trying to collaboratively encode texts in TEI XML on Google Docs, but frustrated by the sheer number of keystrokes it takes? EasyTEI is a Google Apps Script that allows an easier markup scheme which it then transforms into TEI (Text Encoding Initiative) XML format. You may have to adapt the script for the text you're trying to encode.
 
 ![ezgif-5-37d002df9e](https://github.com/suhasm/easytei/assets/3070998/15c0f4d5-c52c-496f-b3a3-36ff47e00377)
 
@@ -25,9 +25,13 @@ EasyTEI can then transform it into TEI XML:
 ```
 
 ## Syntax
-1. ```{oAn}``` represents binding holes. ```{oA6}``` represents a binding hole in Ms A of size 6.
-2. ```{nAx}``` represents a line number. ```{nB9}``` represents that line 9 has just begun in Ms. B.
-3. ```[A=reading1, B=reading2, C= reading3]```represents variants in manuscripts A,B and C. Lemma goes first.
+1. The syntax is:
+       ````sdfdsfdsfsdf
+       dsfdsfsdfdsfdsfsd````
+
+3. ```{oAn}``` represents binding holes. ```{oA6}``` represents a binding hole in Ms A of size 6.
+4. ```{nAx}``` represents a line number. ```{nB9}``` represents that line 9 has just begun in Ms. B.
+5. ```[A=reading1, B=reading2, C= reading3]```represents variants in manuscripts A,B and C. Lemma goes first.
     * Use single letters (such ```A```) to represent manuscripts. Represent editors by two letters (such as ```SM```): ```[SM=reading1, A=reading2, B=reading3]```
     * While using a reading from a different text, put a tilde before the textname: ```[A=reading1, ~meghadūta=reading2, B=reading3]```
     * If you want to specify orthographic or punctuation variants: ```[punct, A=reading1, SM=reading2]```, ```[orthographic, A=reading1, SM=reading2]```
