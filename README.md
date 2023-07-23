@@ -24,15 +24,29 @@ EasyTEI can then transform it into TEI XML:
 </lg>
 ```
 
-There are only a couple of things to remember:
-1. {oAn} represents binding holes. {oA6} represents a binding hole in Ms A of size 6.
-2. {nAx} represents a line number. {nB9} represents that line 9 has just begun in Ms. B.
-3. ```[A=reading1, B=reading2, C= reading3]``` represents variants in manuscripts A,B and C. Use single letters for manuscripts. For emendations by people, use two letters: [SM=tīra, A=taru, B=tarūn]. If you want to quote a reading from a different text, use the tilde: [A=taru, ~meghadūta=tarūn, B=tarīn]. If you want to specify orthographic or punctuation variants: [punct, A=taru, SM=tarūn]
+## Syntax
+1. ```{oAn}``` represents binding holes. ```{oA6}``` represents a binding hole in Ms A of size 6.
+2. ```{nAx}``` represents a line number. ```{nB9}``` represents that line 9 has just begun in Ms. B.
+3. ```[A=reading1, B=reading2, C= reading3]```represents variants in manuscripts A,B and C.
+    * Use single letters for manuscripts. For emendations by people, use two letters: [SM=tīra, A=taru, B=tarūn]. 
+    * If you want to quote a reading from a different text, use the tilde: [A=taru, ~meghadūta=tarūn, B=tarīn]. 
+    * If you want to specify orthographic or punctuation variants: [punct, A=taru, SM=tarūn]
+
+## Usage
+This script is to be used within Google Apps Script connected to a Google Document. To use the script, follow these steps:
+
+1. Open a Google Document.
+2. Select Extensions > Apps Script.
+3. Copy the functions into the Apps Script editor and save the project.
+4. Reload the Google Document.
+5. A new menu item 'EasyTEI' will appear in the toolbar.
+6. Select the text you want to transform and then choose 'Transform to TEI' from the 'EasyTEI' menu.
+7. The selected text will be replaced with the TEI format transformation.
+
+It's also worth noting that the regex used for the transformations are based on assumptions about the structure of the input text. If your input text does not conform to these assumptions, the script may not behave as expected.
 
 
-
-
-## Features
+## Functions
 The script contains the following functions:
 
 ### `wrapLines(text)`
@@ -55,16 +69,3 @@ This function is intended to be used within Google Docs to add a new menu item '
 
 ### `replaceReadingsInDoc()`
 This function is the main text transformation handler in a Google Docs context. It gets the active document, retrieves the selected text, applies all the text transformations and then replaces the original text with the transformed text.
-
-## Usage
-This script is to be used within Google Apps Script connected to a Google Document. To use the script, follow these steps:
-
-1. Open a Google Document.
-2. Select Extensions > Apps Script.
-3. Copy the functions into the Apps Script editor and save the project.
-4. Reload the Google Document.
-5. A new menu item 'EasyTEI' will appear in the toolbar.
-6. Select the text you want to transform and then choose 'Transform to TEI' from the 'EasyTEI' menu.
-7. The selected text will be replaced with the TEI format transformation.
-
-It's also worth noting that the regex used for the transformations are based on assumptions about the structure of the input text. If your input text does not conform to these assumptions, the script may not behave as expected.
