@@ -42,7 +42,8 @@ parallel=Jinadatta, p.76
 2. ```{oAn}``` represents binding holes. ```{oA6}``` represents a binding hole in Ms A of size 6.
 3. ```{nAx}``` represents a line number. ```{nB9}``` represents that line 9 has just begun in Ms. B.
 4. ```parallel=TextName, Reference``` represents a parallel. For example ```parallel=Jinadatta, p.76```
-5. ```[A=reading1, B=reading2, C= reading3]```represents variants in manuscripts A,B and C. Lemma goes first.
+5. ```<pb n="1r" img="2" ed="#A"/>```
+6. ```[A=reading1, B=reading2, C= reading3]```represents variants in manuscripts A,B and C. Lemma goes first.
     * Use single letters (such ```A```) to represent manuscripts. Represent editors by two letters (such as ```SM```): ```[SM=reading1, A=reading2, B=reading3]```
     * While using a reading from a different text, put a tilde before the textname: ```[A=reading1, ~meghadūta=reading2, B=reading3]```
     * If you want to specify orthographic or punctuation variants: ```[punct, A=reading1, SM=reading2]```, ```[orthographic, A=reading1, SM=reading2]```
