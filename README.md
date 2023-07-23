@@ -27,10 +27,10 @@ EasyTEI can then transform it into TEI XML:
 ## Syntax
 1. ```{oAn}``` represents binding holes. ```{oA6}``` represents a binding hole in Ms A of size 6.
 2. ```{nAx}``` represents a line number. ```{nB9}``` represents that line 9 has just begun in Ms. B.
-3. ```[A=reading1, B=reading2, C= reading3]```represents variants in manuscripts A,B and C.
-    * Use single letters for manuscripts. For emendations by people, use two letters: [SM=tīra, A=taru, B=tarūn]. 
-    * If you want to quote a reading from a different text, use the tilde: [A=taru, ~meghadūta=tarūn, B=tarīn]. 
-    * If you want to specify orthographic or punctuation variants: [punct, A=taru, SM=tarūn]
+3. ```[A=reading1, B=reading2, C= reading3]```represents variants in manuscripts A,B and C. Lemma goes first.
+    * Use single letters (such ```A```) to represent manuscripts. Represent editors by two letters (such as ```SM```): ```[SM=reading1, A=reading2, B=reading3]```
+    * While using a reading from a different text, put a tilde before the textname: ```[A=reading1, ~meghadūta=reading2, B=reading3]```
+    * If you want to specify orthographic or punctuation variants: ```[punct, A=reading1, SM=reading2]```, ```[orthographic, A=reading1, SM=reading2]```
 
 ## Usage
 This script is to be used within Google Apps Script connected to a Google Document. To use the script, follow these steps:
