@@ -1,3 +1,59 @@
+function checkBibliography(arg) {
+  var doc = DocumentApp.openById('1BsbuOKi0m41vc43-eM0LW9pXR1F6ThLdxmUqootg_9I');
+  var body = doc.getBody();
+
+  var regex = new RegExp(`xml:id="${arg}"`, 'g');
+  var matches = body.getText().match(regex);
+  var matchCount = matches ? matches.length : 0;
+
+  // If there are matches return 1, otherwise return 0
+  if (matchCount > 0) {
+    return 1;
+  } else {
+    // Show a dialog box with an alert
+    var ui = DocumentApp.getUi();
+    ui.alert(arg + ' not defined.');
+    return 0;
+  }
+}
+
+
+function checkXmlId() {
+  var doc = DocumentApp.getActiveDocument();
+  var selection = doc.getSelection();
+  
+  if (!selection) {
+    DocumentApp.getUi().alert('No text selected.');
+    return;
+  }
+  
+  var selectedElements = selection.getRangeElements();
+  var selectedText = '';
+  for (var i = 0; i < selectedElements.length; i++) {
+    var element = selectedElements[i];
+    
+    if (element.getElement().editAsText) {
+      var text = element.getElement().asText().getText();
+      selectedText += text;
+    }
+  }
+  
+  var body = doc.getBody();
+  var text = body.getText();
+  
+  var xmlIdPattern = /xml:id="([^"]*)"/g;
+  var match, xmlIds = [];
+  while (match = xmlIdPattern.exec(text)) {
+    xmlIds.push(match[1]);
+  }
+  
+  if (xmlIds.includes(selectedText)) {
+    DocumentApp.getUi().alert('Match: ' + selectedText);
+  } else {
+    DocumentApp.getUi().alert('No match');
+  }
+}
+
 function wrapLines(text) {
   // Split the text into lines
   var lines = text.split('\n');
@@ -7,16 +63,27 @@ function wrapLines(text) {
   return lines.join('\n')
 }
 
-
+// This function replaces "{pA-5r-2}" with <pb n="2" img="5r" ed="#A"/>
+function replacePageBreak(text) {
+  var regex = /\{p([A-Za-z0-9]+)-(\d+[A-Za-z])-([0-9]+)\}/g;
+  return text.replace(regex, function(match, p1, p2, p3) {
+    return '<pb n="' + p2 + '" img="' + p3 + '" ed="#' + p1 + '"/>';
+  });
+}
 
 
 // This function replaces "parallel=X, Y" with <note type="parallel"><ptr target="#X"/>Y</note>
 function replaceParallel(text) {
   var regex = /parallel=(.+), (.+)/g; // regex to match "parallel=X, Y" where X and Y are word characters
+  
   return text.replace(regex, function(match, p1, p2) { // replace all matches
+    // Check the bibliography for p1
+    checkBibliography(p1);
+    
     return '\n<note type="parallel"><ptr target="#' + p1 + '"/>' + p2 + '</note>\n'; // construct the replacement string
   });
 }
+
 
 
 // This function replaces any {nAx} in a line with <lb ed="#A" n="x"/>
@@ -96,10 +163,15 @@ function replaceReadings(text) {
 function onOpen() {
   DocumentApp.getUi().createMenu('EasyTEI')
     .addItem('Transform to TEI', 'replaceReadingsInDoc')
+    .addItem('Duplicate as Comment', 'copySelectionWithComments')
+    .addItem('Check if Text is Defined', 'checkBibliography')
     .addToUi();
 }
 
 function replaceReadingsInDoc() {
+
+  
+  
   var doc = DocumentApp.getActiveDocument();
   var selection = doc.getSelection();
   if (selection) {
@@ -128,6 +200,7 @@ function replaceReadingsInDoc() {
         newText = replaceAo(newText)
         newText = replaceLineNo(newText)
         newText = replaceParallel(newText)
+        newText = replacePageBreak(newText)
         text.setText(newText);
         
       }
