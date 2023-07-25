@@ -1,5 +1,5 @@
 function checkBibliography(arg) {
-  var doc = DocumentApp.openById('1BsbuOKi0m41vc43-eM0LW9pXR1F6ThLdxmUqootg_9I');
+  var doc = DocumentApp.openById(DOC_ID_GOES_HERE);
   var body = doc.getBody();
 
   var regex = new RegExp(`xml:id="${arg}"`, 'g');
